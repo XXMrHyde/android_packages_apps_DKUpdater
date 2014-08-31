@@ -9,7 +9,7 @@
      or at https://www.gnu.org/licenses/gpl-2.0.txt
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="app_name">CyanogenMod-Updater</string>
+  <string name="app_name">DK-Updater</string>
   <string name="display_name">Updates</string>
   <string name="unknown">Unbekannt</string>
   <string name="menu_refresh">Aktualisieren</string>
@@ -81,6 +81,6 @@
   <string name="failed_to_load_changelog">Änderungsprotokoll konnte nicht geladen werden</string>
   <string name="changelog_dialog_title">Änderungsprotokoll</string>
   <string name="loading_changelog">Wird geladen\u2026</string>
-  <string name="extension_label">CyanogenMod-Updates</string>
-  <string name="extension_description">Zeigt die Anzahl der verfügbaren CM-Updates an.</string>
+  <string name="extension_label">DarkKat-Updates</string>
+  <string name="extension_description">Zeigt die Anzahl der verfügbaren DarkKat-Updates an.</string>
 </resources>

@@ -54,11 +54,11 @@ public class Utils {
     }
 
     public static String getDeviceType() {
-        return SystemProperties.get("ro.cm.device");
+        return SystemProperties.get("ro.product.device");
     }
 
     public static String getInstalledVersion() {
-        return SystemProperties.get("ro.cm.version");
+        return SystemProperties.get("ro.modversion");
     }
 
     public static int getInstalledApiLevel() {
@@ -67,10 +67,6 @@ public class Utils {
 
     public static long getInstalledBuildDate() {
         return SystemProperties.getLong("ro.build.date.utc", 0);
-    }
-
-    public static String getIncremental() {
-        return SystemProperties.get("ro.build.version.incremental");
     }
 
     public static String getUserAgentString(Context context) {

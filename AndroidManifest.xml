@@ -63,7 +63,7 @@
         <receiver android:name="com.cyanogenmod.updater.receiver.DownloadReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
-                <action android:name="com.cyanogenmod.cmupdater.action.START_DOWNLOAD"/>
+                <action android:name="com.cyanogenmod.dkupdater.action.START_DOWNLOAD"/>
             </intent-filter>
         </receiver>
 
@@ -75,7 +75,7 @@
 
         <receiver android:name="com.cyanogenmod.updater.receiver.CheckFinishReceiver">
             <intent-filter>
-                <action android:name="com.cyanogenmod.cmupdater.action.UPDATE_CHECK_FINISHED"/>
+                <action android:name="com.cyanogenmod.dkupdater.action.UPDATE_CHECK_FINISHED"/>
             </intent-filter>
         </receiver>
 

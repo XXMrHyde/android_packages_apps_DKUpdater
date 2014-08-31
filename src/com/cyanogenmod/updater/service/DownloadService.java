@@ -69,74 +69,16 @@ public class DownloadService extends IntentService
             return;
         }
 
-        try {
-            getIncremental();
-        } catch (IOException e) {
-            downloadFullZip();
-        }
-    }
-
-    private void getIncremental() throws IOException {
-        String sourceIncremental = Utils.getIncremental();
-        Log.d(TAG, "Looking for incremental ota for source=" + sourceIncremental + ", target="
-                + mInfo.getIncremental());
-
-        UpdatesJsonObjectRequest request = buildRequest(sourceIncremental);
-        ((UpdateApplication) getApplicationContext()).getQueue().add(request);
+        downloadFullZip();
     }
 
     private String getServerUri() {
-        String propertyUri = SystemProperties.get("cm.updater.uri");
+        String propertyUri = SystemProperties.get("dk.updater.uri");
         if (!TextUtils.isEmpty(propertyUri)) {
             return propertyUri;
         }
 
         return getString(R.string.conf_update_server_url_def);
-    }
-
-    private UpdatesJsonObjectRequest buildRequest(String sourceIncremental) {
-        URI requestUri = URI.create(getServerUri() + "/v1/build/get_delta");
-        UpdatesJsonObjectRequest request;
-
-        // Set request body
-        try {
-            request = new UpdatesJsonObjectRequest(requestUri.toASCIIString(),
-                    Utils.getUserAgentString(this), buildRequestBody(sourceIncremental),
-                    this, this);
-        } catch (JSONException e) {
-            Log.e(TAG, "JSONException", e);
-            return null;
-        }
-
-        return request;
-    }
-
-    private JSONObject buildRequestBody(String sourceIncremental) throws JSONException {
-        JSONObject body = new JSONObject();
-        body.put("source_incremental", sourceIncremental);
-        body.put("target_incremental", mInfo.getIncremental());
-        return body;
-    }
-
-    private UpdateInfo jsonToInfo(JSONObject obj) {
-        try {
-            if (obj == null || obj.has("errors")) {
-                return null;
-            }
-
-            return new UpdateInfo.Builder()
-                    .setFileName(obj.getString("filename"))
-                    .setDownloadUrl(obj.getString("download_url"))
-                    .setMD5Sum(obj.getString("md5sum"))
-                    .setApiLevel(mInfo.getApiLevel())
-                    .setBuildDate(obj.getLong("date_created_unix"))
-                    .setType(UpdateInfo.Type.INCREMENTAL)
-                    .setIncremental(obj.getString("incremental"))
-                    .build();
-        } catch (JSONException e) {
-            Log.e(TAG, "JSONException", e);
-            return null;
-        }
     }
 
     private long enqueueDownload(String downloadUrl, String localFilePath) {
@@ -155,31 +97,6 @@ public class DownloadService extends IntentService
 
         final DownloadManager dm = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
         return dm.enqueue(request);
-    }
-
-    private void downloadIncremental(UpdateInfo incrementalUpdateInfo) {
-        Log.v(TAG, "Downloading incremental zip: " + incrementalUpdateInfo.getDownloadUrl());
-        // Build the name of the file to download, adding .partial at the end.  It will get
-        // stripped off when the download completes
-        String sourceIncremental = Utils.getIncremental();
-        String targetIncremental = mInfo.getIncremental();
-        String fileName = "incremental-" + sourceIncremental + "-" + targetIncremental + ".zip";
-        String incrementalFilePath = "file://" + getUpdateDirectory().getAbsolutePath() + "/" + fileName + ".partial";
-
-        long downloadId = enqueueDownload(incrementalUpdateInfo.getDownloadUrl(), incrementalFilePath);
-
-        // Store in shared preferences
-        mPrefs.edit()
-                .putLong(Constants.DOWNLOAD_ID, downloadId)
-                .putString(Constants.DOWNLOAD_MD5, incrementalUpdateInfo.getMD5Sum())
-                .putString(Constants.DOWNLOAD_INCREMENTAL_FOR, mInfo.getFileName())
-                .apply();
-
-        Utils.cancelNotification(this);
-
-        Intent intent = new Intent(DownloadReceiver.ACTION_DOWNLOAD_STARTED);
-        intent.putExtra(DownloadManager.EXTRA_DOWNLOAD_ID, downloadId);
-        sendBroadcast(intent);
     }
 
     private void downloadFullZip() {
@@ -224,12 +141,6 @@ public class DownloadService extends IntentService
     @Override
     public void onResponse(JSONObject response) {
         VolleyLog.v("Response:%n %s", response);
-
-        UpdateInfo incrementalUpdateInfo = jsonToInfo(response);
-        if (incrementalUpdateInfo == null) {
-            downloadFullZip();
-        } else {
-            downloadIncremental(incrementalUpdateInfo);
-        }
+        downloadFullZip();
     }
 }
