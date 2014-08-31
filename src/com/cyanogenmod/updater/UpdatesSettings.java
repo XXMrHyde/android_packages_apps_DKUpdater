@@ -231,7 +231,7 @@ public class UpdatesSettings extends PreferenceActivity implements
             return true;
         } else if (preference == mUpdateType) {
             final int value = Integer.valueOf((String) newValue);
-            if (value == Constants.UPDATE_TYPE_NEW_NIGHTLY
+            if (value == Constants.UPDATE_TYPE_NEW_BETA
                     || value == Constants.UPDATE_TYPE_ALL) {
                 new AlertDialog.Builder(this)
                     .setTitle(R.string.nightly_alert_title)

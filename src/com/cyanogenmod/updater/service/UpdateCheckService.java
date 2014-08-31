@@ -232,15 +232,15 @@ public class UpdateCheckService extends IntentService
 
         switch(updateType) {
             case Constants.UPDATE_TYPE_ALL:
-                channels.put("snapshot");
-                channels.put("nightly");
+                channels.put("release");
+                channels.put("beta");
                 break;
-            case Constants.UPDATE_TYPE_NEW_NIGHTLY:
-                channels.put("nightly");
+            case Constants.UPDATE_TYPE_NEW_BETA:
+                channels.put("beta");
                 break;
-            case Constants.UPDATE_TYPE_NEW_SNAPSHOT:
+            case Constants.UPDATE_TYPE_NEW_RELEASE:
             default:
-                channels.put("snapshot");
+                channels.put("release");
                 break;
         }
         JSONObject params = new JSONObject();

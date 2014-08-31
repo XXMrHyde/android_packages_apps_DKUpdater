@@ -33,7 +33,7 @@ public class Constants {
     public static final int UPDATE_FREQ_MONTHLY = 2419200;
 
     // Update types
-    public static final int UPDATE_TYPE_NEW_SNAPSHOT = 0;
-    public static final int UPDATE_TYPE_NEW_NIGHTLY = 1;
+    public static final int UPDATE_TYPE_NEW_RELEASE = 0;
+    public static final int UPDATE_TYPE_NEW_BETA = 1;
     public static final int UPDATE_TYPE_ALL = 2;
 }

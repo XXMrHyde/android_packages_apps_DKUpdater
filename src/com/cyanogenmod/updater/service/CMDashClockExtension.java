@@ -81,7 +81,7 @@ public class CMDashClockExtension extends DashClockExtension {
         // Publish the extension data update.
         publishUpdate(new ExtensionData()
                 .visible(!updates.isEmpty())
-                .icon(R.drawable.ic_extension_cid)
+                .icon(R.drawable.ic_extension_updater)
                 .status(res.getQuantityString(R.plurals.extension_status, count, count))
                 .expandedTitle(res.getQuantityString(R.plurals.extension_expandedTitle, count, count))
                 .expandedBody(expandedBody.toString())
