@@ -58,7 +58,7 @@ public class Utils {
     }
 
     public static String getInstalledVersion() {
-        return SystemProperties.get("ro.modversion");
+        return SystemProperties.get("ro.dk.version");
     }
 
     public static int getInstalledApiLevel() {
