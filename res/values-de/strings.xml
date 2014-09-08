@@ -40,8 +40,8 @@
   <string name="update_type_title">Update-Typen</string>
   <string name="type_all_incl_nightly">Alle Versionen</string>
   <string name="type_new">Freigabe-Versionen</string>
-  <string name="type_new_incl_nightly">Entwickler-Versionen</string>
-  <string name="nightly_alert">Sie haben festgelegt, dass auch Entwickler-Versionen angezeigt werden. Für diese Versionen kann keine Unterstützung geleistet werden.  Aus diesem Grund sollten Entwickler-Versionen mit Vorsicht installiert werden.</string>
+  <string name="type_new_incl_nightly">Beta-Versionen</string>
+  <string name="nightly_alert">Sie haben festgelegt, dass auch Beta-Versionen angezeigt werden. Diese Versionen sind nur auf dem Nexus 5 getestet, und einzelne Funktionen können fehlerhaft sein.  Aus diesem Grund sollten Beta-Versionen mit Vorsicht installiert werden.</string>
   <string name="nightly_alert_title">Achtung</string>
   <string name="checking_for_updates">Updates werden gesucht</string>
   <string name="no_updates_found">Keine neuen Updates gefunden</string>
@@ -59,12 +59,12 @@
   <string name="not_download_success">Update-Download abgeschlossen</string>
   <string name="not_download_failure">Update-Download fehlgeschlagen</string>
   <string name="not_action_install_update">Neu starten und installieren</string>
-  <string name="not_download_install_notice">Das Update <xliff:g id="filename">%s</xliff:g> wurde erfolgreich heruntergeladen. Beim Berühren von \"Neu starten und installieren\" wird das Gerät neu gestartet, um das Update zu installieren.\n\nHinweis: Für die Installation wird ein kompatibles Recovery-System benötigt.</string>
+  <string name="not_download_install_notice">Das Update <xliff:g id="filename">%s</xliff:g> wurde erfolgreich heruntergeladen. Beim Berühren von \"Neu starten und installieren\" wird das Gerät neu gestartet, um das Update zu installieren.\n\nMultiRom: Die automatische Installation ist nicht für zusätzliche Roms getestet, sollte DarkKat als zusätzliche Rom installiert sein, sollte das Update manuell ausgeführt werden!\nDas Update befindet sich unter:\n/sdcard/dkupdater.\n\nHinweis: Für die Installation wird ein kompatibles Recovery-System benötigt.</string>
   <string name="apply_existing_update_md5error_message">Fehler: MD5-Prüfsumme stimmt nicht überein</string>
   <string name="md5_check_cancelled">MD5-Prüfung wurde abgebrochen</string>
   <string name="md5_verification_failed">MD5-Prüfung fehlgeschlagen</string>
   <string name="apply_update_dialog_title">Update installieren</string>
-  <string name="apply_update_dialog_text">Bereit zum Update auf <xliff:g id="filename">%s</xliff:g>.\n\nNach dem Start des Updates wird das Gerät im Recovery-Modus gestartet, um das Update durchzuführen.\n\nHinweis: Diese Funktion erfordert ein kompatibles Recovery-System, anderenfalls muss das Update manuell installiert werden.</string>
+  <string name="apply_update_dialog_text">Bereit zum Update auf <xliff:g id="filename">%s</xliff:g>.\n\nNach dem Start des Updates wird das Gerät im Recovery-Modus gestartet, um das Update durchzuführen.\n\nMultiRom: Die automatische Installation ist nicht für zusätzliche Roms getestet, sollte DarkKat als zusätzliche Rom installiert sein, sollte das Update manuell ausgeführt werden!\ndas Update befindet sich unter:\n/sdcard/dkupdater.\n\nHinweis: Diese Funktion erfordert ein kompatibles Recovery-System, anderenfalls muss das Update manuell installiert werden.</string>
   <string name="apply_trying_to_get_root_access">Es wird Root-Zugriff angefordert, um in den Recovery-Modus zu starten</string>
   <string name="apply_unable_to_reboot_toast">Neustart in den Recovery-Modus nicht möglich</string>
   <string name="confirm_delete_dialog_title">Datei löschen</string>

@@ -196,14 +196,30 @@ public class UpdateCheckService extends IntentService
         sendBroadcast(finishedIntent);
     }
 
-    private URI getServerURI() {
+    private URI getServerURI(int updateType) {
         String propertyUpdateUri = SystemProperties.get("dk.updater.uri");
+        String device = SystemProperties.get("ro.product.device");
+        String channel = "release";
+
+        switch(updateType) {
+            case Constants.UPDATE_TYPE_ALL:
+                channel = "all";
+                break;
+            case Constants.UPDATE_TYPE_NEW_BETA:
+                channel = "beta";
+                break;
+            case Constants.UPDATE_TYPE_NEW_RELEASE:
+            default:
+                channel = "release";
+                break;
+        }
+
         if (!TextUtils.isEmpty(propertyUpdateUri)) {
-            return URI.create(propertyUpdateUri);
+            return URI.create(propertyUpdateUri + device + "/" + channel);
         }
 
         String configUpdateUri = getString(R.string.conf_update_server_url_def);
-        return URI.create(configUpdateUri);
+        return URI.create(configUpdateUri + device + "/" + channel);
     }
 
     private void getAvailableUpdates() {
@@ -212,7 +228,7 @@ public class UpdateCheckService extends IntentService
         int updateType = prefs.getInt(Constants.UPDATE_TYPE_PREF, 0);
 
         // Get the actual ROM Update Server URL
-        URI updateServerUri = getServerURI();
+        URI updateServerUri = getServerURI(updateType);
         UpdatesJsonObjectRequest request;
         try {
             request = new UpdatesJsonObjectRequest(updateServerUri.toASCIIString(),
