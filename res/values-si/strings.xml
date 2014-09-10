@@ -9,7 +9,7 @@
      or at https://www.gnu.org/licenses/gpl-2.0.txt
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="app_name">CM යාවත්කාලකය</string>
+  <string name="app_name">DK යාවත්කාලකය</string>
   <string name="display_name">යාවත්කාලීනයන්</string>
   <string name="unknown">නොදනී</string>
   <string name="menu_refresh">නැවුම් කරන්න</string>
@@ -81,6 +81,6 @@
   <string name="failed_to_load_changelog">වෙනස්කම් ලොගය පූරණය කළනොහැක</string>
   <string name="changelog_dialog_title">වෙනස්කම් ලොගය</string>
   <string name="loading_changelog">පූරණයවෙමින්\u2026</string>
-  <string name="extension_label">CyanogenMod යාවත්කාලීනයන්</string>
+  <string name="extension_label">DarkKat යාවත්කාලීනයන්</string>
   <string name="extension_description">ලැබීඇති නව යාවත්කාලීනයන් ගණන විදහා පෙන්වයි.</string>
 </resources>

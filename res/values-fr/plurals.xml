@@ -22,7 +22,7 @@
     <item quantity="other"><xliff:g id="count">%d</xliff:g> mises à jour</item>
   </plurals>
   <plurals name="extension_expandedTitle">
-    <item quantity="one"><xliff:g id="count">%d</xliff:g> mise à jour CyanogenMod</item>
-    <item quantity="other"><xliff:g id="count">%d</xliff:g> mises à jour CyanogenMod</item>
+    <item quantity="one"><xliff:g id="count">%d</xliff:g> mise à jour DarkKat</item>
+    <item quantity="other"><xliff:g id="count">%d</xliff:g> mises à jour DarkKat</item>
   </plurals>
 </resources>

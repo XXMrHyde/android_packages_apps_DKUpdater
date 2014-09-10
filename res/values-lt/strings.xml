@@ -9,7 +9,7 @@
      or at https://www.gnu.org/licenses/gpl-2.0.txt
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="app_name">CM atnaujinimai</string>
+  <string name="app_name">DK atnaujinimai</string>
   <string name="display_name">Atnaujinimai</string>
   <string name="unknown">Nežinoma</string>
   <string name="menu_refresh">Tikrinti</string>
@@ -81,6 +81,6 @@
   <string name="failed_to_load_changelog">Nepavyko įkelti pakeitimų sąrašo</string>
   <string name="changelog_dialog_title">Pakeitimai</string>
   <string name="loading_changelog">Įkeliama\u2026</string>
-  <string name="extension_label">„CyanogenMod“ atnaujinimai</string>
+  <string name="extension_label">„DarkKat“ atnaujinimai</string>
   <string name="extension_description">Rodyti atnaujinimų skaičių.</string>
 </resources>

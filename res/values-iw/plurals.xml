@@ -23,6 +23,6 @@
   </plurals>
   <plurals name="extension_expandedTitle">
     <item quantity="one">עדכון CyanogenMod יחיד</item>
-    <item quantity="other"><xliff:g id="count">%d</xliff:g> עדכוני CyanogenMod</item>
+    <item quantity="other"><xliff:g id="count">%d</xliff:g> עדכוני DarkKat</item>
   </plurals>
 </resources>

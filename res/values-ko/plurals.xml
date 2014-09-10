@@ -19,6 +19,6 @@
     <item quantity="other"><xliff:g id="count">%d</xliff:g>개의 업데이트</item>
   </plurals>
   <plurals name="extension_expandedTitle">
-    <item quantity="other"><xliff:g id="count">%d</xliff:g>개의 CyanogenMod 업데이트</item>
+    <item quantity="other"><xliff:g id="count">%d</xliff:g>개의 DarkKat 업데이트</item>
   </plurals>
 </resources>

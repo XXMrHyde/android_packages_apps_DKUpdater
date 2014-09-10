@@ -22,7 +22,7 @@
     <item quantity="other"><xliff:g id="count">%d</xliff:g> ενημερώσεις</item>
   </plurals>
   <plurals name="extension_expandedTitle">
-    <item quantity="one"><xliff:g id="count">%d</xliff:g> ενημέρωση CyanogenMod</item>
-    <item quantity="other"><xliff:g id="count">%d</xliff:g> ενημερώσεις CyanogenMod</item>
+    <item quantity="one"><xliff:g id="count">%d</xliff:g> ενημέρωση DarkKat</item>
+    <item quantity="other"><xliff:g id="count">%d</xliff:g> ενημερώσεις DarkKat</item>
   </plurals>
 </resources>

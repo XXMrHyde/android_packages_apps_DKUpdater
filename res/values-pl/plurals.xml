@@ -25,8 +25,8 @@
     <item quantity="other"><xliff:g id="count">%d</xliff:g> aktualizacji</item>
   </plurals>
   <plurals name="extension_expandedTitle">
-    <item quantity="one"><xliff:g id="count">%d</xliff:g> aktualizacja CyanogenModa</item>
-    <item quantity="few"><xliff:g id="count">%d</xliff:g> aktualizacje CyanogenModa</item>
-    <item quantity="other"><xliff:g id="count">%d</xliff:g> aktualizacji CyanogenModa</item>
+    <item quantity="one"><xliff:g id="count">%d</xliff:g> aktualizacja DarkKat</item>
+    <item quantity="few"><xliff:g id="count">%d</xliff:g> aktualizacje DarkKat</item>
+    <item quantity="other"><xliff:g id="count">%d</xliff:g> aktualizacji DarkKat</item>
   </plurals>
 </resources>

@@ -25,8 +25,8 @@
     <item quantity="other"><xliff:g id="count">%d</xliff:g> оновлень</item>
   </plurals>
   <plurals name="extension_expandedTitle">
-    <item quantity="one"><xliff:g id="count">%d</xliff:g> оновлення CyanogenMod</item>
-    <item quantity="few"><xliff:g id="count">%d</xliff:g> оновлення CyanogenMod</item>
-    <item quantity="other"><xliff:g id="count">%d</xliff:g> оновлень CyanogenMod</item>
+    <item quantity="one"><xliff:g id="count">%d</xliff:g> оновлення DarkKat</item>
+    <item quantity="few"><xliff:g id="count">%d</xliff:g> оновлення DarkKat</item>
+    <item quantity="other"><xliff:g id="count">%d</xliff:g> оновлень DarkKat</item>
   </plurals>
 </resources>

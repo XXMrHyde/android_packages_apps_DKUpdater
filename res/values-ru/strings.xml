@@ -9,7 +9,7 @@
      or at https://www.gnu.org/licenses/gpl-2.0.txt
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="app_name">Обновление CyanogenMod</string>
+  <string name="app_name">Обновление DK</string>
   <string name="display_name">Обновления</string>
   <string name="unknown">Неизвестно</string>
   <string name="menu_refresh">Проверить</string>
@@ -82,5 +82,5 @@
   <string name="changelog_dialog_title">Список изменений</string>
   <string name="loading_changelog">Загрузка\u2026</string>
   <string name="extension_label">Обновления системы</string>
-  <string name="extension_description">Показывает количество доступных обновлений CyanogenMod.</string>
+  <string name="extension_description">Показывает количество доступных обновлений DarkKat.</string>
 </resources>

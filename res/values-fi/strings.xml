@@ -9,7 +9,7 @@
      or at https://www.gnu.org/licenses/gpl-2.0.txt
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="app_name">CM Updater</string>
+  <string name="app_name">DK Updater</string>
   <string name="display_name">Päivitykset</string>
   <string name="unknown">Tuntematon</string>
   <string name="menu_refresh">Päivitä</string>
@@ -81,6 +81,6 @@
   <string name="failed_to_load_changelog">Muutoslokin lataaminen epäonnistui</string>
   <string name="changelog_dialog_title">Muutosloki</string>
   <string name="loading_changelog">Ladataan\u2026</string>
-  <string name="extension_label">CyanogenMod-päivitykset</string>
+  <string name="extension_label">DarkKat-päivitykset</string>
   <string name="extension_description">Näyttää uusien saatavilla olevien päivitysten määrän.</string>
 </resources>

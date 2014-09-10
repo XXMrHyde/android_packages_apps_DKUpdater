@@ -25,8 +25,8 @@
     <item quantity="other"><xliff:g id="count">%d</xliff:g> atnaujinimų</item>
   </plurals>
   <plurals name="extension_expandedTitle">
-    <item quantity="one"><xliff:g id="count">%d</xliff:g> „CyanogenMod“ atnaujinimas</item>
-    <item quantity="few"><xliff:g id="count">%d</xliff:g> „CyanogenMod“ atnaujinimai</item>
-    <item quantity="other"><xliff:g id="count">%d</xliff:g> „CyanogenMod“ atnaujinimų</item>
+    <item quantity="one"><xliff:g id="count">%d</xliff:g> „DarkKat“ atnaujinimas</item>
+    <item quantity="few"><xliff:g id="count">%d</xliff:g> „DarkKat“ atnaujinimai</item>
+    <item quantity="other"><xliff:g id="count">%d</xliff:g> „DarkKat“ atnaujinimų</item>
   </plurals>
 </resources>

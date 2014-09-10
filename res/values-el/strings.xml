@@ -9,7 +9,7 @@
      or at https://www.gnu.org/licenses/gpl-2.0.txt
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="app_name">Ενημερώσεις CM</string>
+  <string name="app_name">Ενημερώσεις DK</string>
   <string name="display_name">Ενημερώσεις</string>
   <string name="unknown">Άγνωστο</string>
   <string name="menu_refresh">Ανανέωση</string>
@@ -81,6 +81,6 @@
   <string name="failed_to_load_changelog">Δεν είναι δυνατή η φόρτωση του αρχείου αλλαγών</string>
   <string name="changelog_dialog_title">Αρχείο αλλαγών</string>
   <string name="loading_changelog">Φόρτωση\u2026</string>
-  <string name="extension_label">Ενημερώσεις CyanogenMod</string>
+  <string name="extension_label">Ενημερώσεις DarkKat</string>
   <string name="extension_description">Εμφανίζει τον αριθμό των διαθέσιμων νέων ενημερώσεων.</string>
 </resources>

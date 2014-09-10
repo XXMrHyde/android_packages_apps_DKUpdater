@@ -9,7 +9,7 @@
      or at https://www.gnu.org/licenses/gpl-2.0.txt
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="app_name">CM Opgradeerder</string>
+  <string name="app_name">DK Opgradeerder</string>
   <string name="display_name">Opgraderings</string>
   <string name="unknown">Onbekend</string>
   <string name="menu_refresh">Herlaai</string>
@@ -81,6 +81,6 @@
   <string name="failed_to_load_changelog">Kon nie Veranderinge-log laai nie</string>
   <string name="changelog_dialog_title">Veranderinge-log</string>
   <string name="loading_changelog">Laai\u2026</string>
-  <string name="extension_label">CyanogenMod opgraderings</string>
+  <string name="extension_label">DarkKat opgraderings</string>
   <string name="extension_description">Vertoon die aantal nuwe opgraderings beskikbaar</string>
 </resources>

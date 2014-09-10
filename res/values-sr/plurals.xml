@@ -28,9 +28,9 @@
     <item quantity="other"><xliff:g id="count">%d</xliff:g> ажурирања</item>
   </plurals>
   <plurals name="extension_expandedTitle">
-    <item quantity="one"><xliff:g id="count">%d</xliff:g> CyanogenMod ажурирање</item>
-    <item quantity="few"><xliff:g id="count">%d</xliff:g> CyanogenMod ажурирања</item>
-    <item quantity="many"><xliff:g id="count">%d</xliff:g> CyanogenMod ажурирања</item>
-    <item quantity="other"><xliff:g id="count">%d</xliff:g> CyanogenMod ажурирања</item>
+    <item quantity="one"><xliff:g id="count">%d</xliff:g> DarkKat ажурирање</item>
+    <item quantity="few"><xliff:g id="count">%d</xliff:g> DarkKat ажурирања</item>
+    <item quantity="many"><xliff:g id="count">%d</xliff:g> DarkKat ажурирања</item>
+    <item quantity="other"><xliff:g id="count">%d</xliff:g> DarkKat ажурирања</item>
   </plurals>
 </resources>

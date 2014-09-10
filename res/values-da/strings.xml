@@ -9,7 +9,7 @@
      or at https://www.gnu.org/licenses/gpl-2.0.txt
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="app_name">CM-opdatering</string>
+  <string name="app_name">DK-opdatering</string>
   <string name="display_name">Opdateringer</string>
   <string name="unknown">Ukendt</string>
   <string name="menu_refresh">Genopfrisk</string>
@@ -81,6 +81,6 @@
   <string name="failed_to_load_changelog">Kan ikke indlæse ændringslog</string>
   <string name="changelog_dialog_title">Ændringslog</string>
   <string name="loading_changelog">Indlæser\u2026</string>
-  <string name="extension_label">CyanogenMod-opdateringer</string>
+  <string name="extension_label">DarkKat-opdateringer</string>
   <string name="extension_description">Viser antal nye tilgængelige opdateringer.</string>
 </resources>

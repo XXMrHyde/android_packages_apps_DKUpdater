@@ -22,7 +22,7 @@
     <item quantity="other"><xliff:g id="count">%d</xliff:g> anovamientos</item>
   </plurals>
   <plurals name="extension_expandedTitle">
-    <item quantity="one"><xliff:g id="count">%d</xliff:g> anovamientu de CyanogenMod</item>
-    <item quantity="other"><xliff:g id="count">%d</xliff:g> anovamientos de CyanogenMod</item>
+    <item quantity="one"><xliff:g id="count">%d</xliff:g> anovamientu de DarkKat</item>
+    <item quantity="other"><xliff:g id="count">%d</xliff:g> anovamientos de DarkKat</item>
   </plurals>
 </resources>

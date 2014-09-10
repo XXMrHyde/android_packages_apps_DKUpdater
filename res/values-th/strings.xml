@@ -9,7 +9,7 @@
      or at https://www.gnu.org/licenses/gpl-2.0.txt
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="app_name">ตัวจัดการปรับปรุงรุ่น CM</string>
+  <string name="app_name">ตัวจัดการปรับปรุงรุ่น DK</string>
   <string name="display_name">ปรับปรุงรุ่น</string>
   <string name="unknown">ไม่ทราบ</string>
   <string name="menu_refresh">โหลดใหม่</string>
@@ -81,6 +81,6 @@
   <string name="failed_to_load_changelog">ไม่สามารถโหลดความเปลี่ยนแปลงได้</string>
   <string name="changelog_dialog_title">ความเปลี่ยนแปลง</string>
   <string name="loading_changelog">กำลังโหลด\u2026</string>
-  <string name="extension_label">การปรับปรุงรุ่น CyanogenMod</string>
+  <string name="extension_label">การปรับปรุงรุ่น DarkKat</string>
   <string name="extension_description">แสดงจำนวนการอัพเดตใหม่</string>
 </resources>

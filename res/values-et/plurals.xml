@@ -22,7 +22,7 @@
     <item quantity="other"><xliff:g id="count">%d</xliff:g> värskendust</item>
   </plurals>
   <plurals name="extension_expandedTitle">
-    <item quantity="one"><xliff:g id="count">%d</xliff:g> CyanogenMod värskendus</item>
-    <item quantity="other"><xliff:g id="count">%d</xliff:g> CyanogenMod värskendust</item>
+    <item quantity="one"><xliff:g id="count">%d</xliff:g> DarkKat värskendus</item>
+    <item quantity="other"><xliff:g id="count">%d</xliff:g> DarkKat värskendust</item>
   </plurals>
 </resources>

@@ -9,7 +9,7 @@
      or at https://www.gnu.org/licenses/gpl-2.0.txt
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="app_name">CM eguneratzailea</string>
+  <string name="app_name">DK eguneratzailea</string>
   <string name="display_name">Eguneraketak</string>
   <string name="unknown">Ezezaguna</string>
   <string name="menu_refresh">Berritu</string>
@@ -81,6 +81,6 @@
   <string name="failed_to_load_changelog">Ezinezkoa da aldakteta erregistroa irekitzea</string>
   <string name="changelog_dialog_title">Aldaketa erregistroa</string>
   <string name="loading_changelog">Kargatzen\u2026</string>
-  <string name="extension_label">Cyanogenmod eguneraketak</string>
+  <string name="extension_label">DarkKat eguneraketak</string>
   <string name="extension_description">Eskuragarri dauden eguneraketa kantitatea erakutsi.</string>
 </resources>

@@ -9,7 +9,7 @@
      or at https://www.gnu.org/licenses/gpl-2.0.txt
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="app_name">Pembaruan CM</string>
+  <string name="app_name">Pembaruan DK</string>
   <string name="display_name">Pembaruan</string>
   <string name="unknown">Tidak dikenal</string>
   <string name="menu_refresh">Refresh</string>
@@ -81,6 +81,6 @@
   <string name="failed_to_load_changelog">Tidak dapat memuat daftar perubahan</string>
   <string name="changelog_dialog_title">Daftar perubahan</string>
   <string name="loading_changelog">Memuat\u2026</string>
-  <string name="extension_label">Pembaruan CyanogenMod</string>
+  <string name="extension_label">Pembaruan DarkKat</string>
   <string name="extension_description">Menampilkan jumlah pembaruan baru yang tersedia.</string>
 </resources>
