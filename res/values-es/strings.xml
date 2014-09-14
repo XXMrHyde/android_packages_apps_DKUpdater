@@ -40,8 +40,8 @@
   <string name="update_type_title">Tipo de actualización</string>
   <string name="type_all_incl_nightly">Todas las versiones</string>
   <string name="type_new">Nuevas (solo estables)</string>
-  <string name="type_new_incl_nightly">Nuevas (incl. no estables)</string>
-  <string name="nightly_alert">Has elegido incluir actualizaciones no estables en esta lista. Este tipo de actualizaciones no disponen de soporte al usuario y deberían ser utilizadas con precaución.</string>
+  <string name="type_new_incl_nightly">Canal Beta</string>
+  <string name="nightly_alert">Has seleccionado incluir actualizaciones beta en el listado. Estas actualizaciones sólo están probadas en el Nexus 5 y es posible que tengan fallos. Úsalas con precaución.</string>
   <string name="nightly_alert_title">Advertencia</string>
   <string name="checking_for_updates">Comprobando actualizaciones\u2026</string>
   <string name="no_updates_found">No hay nuevas actualizaciones</string>
@@ -59,12 +59,12 @@
   <string name="not_download_success">Actualización descargada</string>
   <string name="not_download_failure">Actualización no descargada</string>
   <string name="not_action_install_update">Reiniciar e instalar</string>
-  <string name="not_download_install_notice">La actualización <xliff:g id="filename">%s</xliff:g> fue descargada correctamente. Pulsando sobre \u00ABReiniciar e instalar\u00BB, el dispositivo se reiniciará para instalar la actualización.\n\nAviso: Será necesario disponer de un recovery compatible para una instalación desatendida.</string>
+  <string name="not_download_install_notice">La actualización <xliff:g id="filename">%s</xliff:g> se ha descargado correctamente. Cuando presiones \'Reiniciar e instalar\', el dispositivo se reiniciará para instalar la actualización.\n\nMultiRom: La autoinstalación no está testeada para Roms adicionales si la DarkKat se instala como Rom adicional, se recomienda instalar la actualización manualmente.\n La actualización está ubicada en :\n/sdcard/dkupdater\n\nNota: Es necesario un Recovery compatible para que se instale automáticamente.</string>
   <string name="apply_existing_update_md5error_message">Error. La verificación MD5 no coincide</string>
   <string name="md5_check_cancelled">La verificación MD5 fue cancelada</string>
   <string name="md5_verification_failed">Falló la verificación MD5</string>
   <string name="apply_update_dialog_title">Aplicar actualización</string>
-  <string name="apply_update_dialog_text">Se va a proceder a actualizar a la versión <xliff:g id="filename">%s</xliff:g>.\n\nPulsando sobre \u00ABActualizar\u00BB, el dispositivo se reiniciará para instalar la actualización.\n\nAviso: Será necesario disponer de un recovery compatible para una instalación desatendida.</string>
+  <string name="apply_update_dialog_text">Estás a punto de actualizar a la versión <xliff:g id="filename">%s</xliff:g>.\n\nSi presionas Actualizar, el dispositivo se reiniciará en modo recovery para instalar la actualización.\n\nMultiRom: La autoinstalación no está testeada para Roms adicionales si la DarkKat se instala como Rom adicional, se recomienda instalar la actualización manualmente.\n La actualización está ubicada en :\n/sdcard/dkupdater\n\nNota: Es necesario un Recovery compatible o instalar las actualizaciones manualmente.</string>
   <string name="apply_trying_to_get_root_access">Intentando acceso administrativo para reiniciar en modo recovery</string>
   <string name="apply_unable_to_reboot_toast">Imposible reiniciar en modo recovery</string>
   <string name="confirm_delete_dialog_title">Borrar archivo</string>
