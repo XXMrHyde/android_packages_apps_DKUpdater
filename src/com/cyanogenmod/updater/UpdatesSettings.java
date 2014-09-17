@@ -71,6 +71,7 @@ public class UpdatesSettings extends PreferenceActivity implements
     private static final int MENU_REFRESH = 0;
     private static final int MENU_DELETE_ALL = 1;
     private static final int MENU_SYSTEM_INFO = 2;
+    private static final int MENU_NEXT_CHANGES = 3;
 
     private SharedPreferences mPrefs;
     private CheckBoxPreference mBackupRom;
@@ -187,6 +188,9 @@ public class UpdatesSettings extends PreferenceActivity implements
         menu.add(0, MENU_SYSTEM_INFO, 0, R.string.menu_system_info)
             .setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
 
+        menu.add(0, MENU_NEXT_CHANGES, 0, R.string.menu_next_changes)
+            .setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
+
         return true;
     }
 
@@ -203,6 +207,12 @@ public class UpdatesSettings extends PreferenceActivity implements
 
             case MENU_SYSTEM_INFO:
                 showSysInfo();
+                return true;
+
+            case MENU_NEXT_CHANGES:
+                final String nextChangesFileName = Utils.germanLocalization() ?
+                        Constants.CHANGELOG_NEXT_GERMAN : Constants.CHANGELOG_NEXT_ENGLISH;
+                new FetchChangeLogTask(this).execute(nextChangesFileName);
                 return true;
 
             case android.R.id.home:

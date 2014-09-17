@@ -16,6 +16,7 @@
   <string name="menu_delete">Löschen</string>
   <string name="menu_delete_all">Downloads löschen</string>
   <string name="menu_system_info">Systeminformationen</string>
+  <string name="menu_next_changes">Geplante Änderungen anz.</string>
   <string name="dialog_ok">OK</string>
   <string name="dialog_cancel">Abbrechen</string>
   <string name="dialog_yes">Ja</string>

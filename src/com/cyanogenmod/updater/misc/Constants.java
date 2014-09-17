@@ -43,4 +43,6 @@ public class Constants {
     public static final String CHANGELOG_RELEASE_GERMAN = "Changes-release_de.html";
     public static final String CHANGELOG_BETA_ENGLISH = "Changes-beta_en.html";
     public static final String CHANGELOG_BETA_GERMAN = "Changes-beta_de.html";
+    public static final String CHANGELOG_NEXT_ENGLISH = "nextfeatures_en.html";
+    public static final String CHANGELOG_NEXT_GERMAN = "nextfeatures_de.html";
 }

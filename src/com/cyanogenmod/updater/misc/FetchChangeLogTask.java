@@ -73,6 +73,8 @@ public class FetchChangeLogTask extends AsyncTask<String, Void, Void>
         if (mFileName != null) {
             if (mFileName.toLowerCase().contains("beta")) {
                 channel = "beta";
+            } else if (mFileName.toLowerCase().contains("nextfeatures")) {
+                channel = "next";
             }
 
             final String finalChangelogUrl = ChangelogUri + channel + "/" + mFileName;
