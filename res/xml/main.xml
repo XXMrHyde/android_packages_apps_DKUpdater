@@ -28,6 +28,11 @@
          android:entries="@array/update_type_entries"
          android:entryValues="@array/update_type_values"/>
 
+    <PreferenceScreen
+        android:key="pref_changelog"
+        android:title="@string/changelog_title"
+        android:summary="@string/changelog_release_summary" />
+
      <!-- TODO: add this back once we have a way of doing backups that is not recovery specific
      <CheckBoxPreference
          android:key="pref_backup_rom"

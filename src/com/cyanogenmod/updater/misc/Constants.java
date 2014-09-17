@@ -20,6 +20,7 @@ public class Constants {
     public static final String BACKUP_PREF = "pref_backup_rom";
     public static final String UPDATE_CHECK_PREF = "pref_update_check_interval";
     public static final String UPDATE_TYPE_PREF = "pref_update_types";
+    public static final String CHANGELOG_PREF = "pref_changelog";
     public static final String LAST_UPDATE_CHECK_PREF = "pref_last_update_check";
 
     // Update Check items
@@ -36,4 +37,10 @@ public class Constants {
     public static final int UPDATE_TYPE_NEW_RELEASE = 0;
     public static final int UPDATE_TYPE_NEW_BETA = 1;
     public static final int UPDATE_TYPE_ALL = 2;
+
+    // Changelog names
+    public static final String CHANGELOG_RELEASE_ENGLISH = "Changes-release_en.html";
+    public static final String CHANGELOG_RELEASE_GERMAN = "Changes-release_de.html";
+    public static final String CHANGELOG_BETA_ENGLISH = "Changes-beta_en.html";
+    public static final String CHANGELOG_BETA_GERMAN = "Changes-beta_de.html";
 }

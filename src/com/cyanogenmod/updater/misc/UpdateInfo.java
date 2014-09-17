@@ -33,7 +33,6 @@ public class UpdateInfo implements Parcelable, Serializable {
     private int mApiLevel;
     private long mBuildDate;
     private String mDownloadUrl;
-    private String mChangelogUrl;
     private String mMd5Sum;
 
     private Boolean mIsNewerThanInstalled;
@@ -44,10 +43,6 @@ public class UpdateInfo implements Parcelable, Serializable {
 
     private UpdateInfo(Parcel in) {
         readFromParcel(in);
-    }
-
-    public File getChangeLogFile(Context context) {
-        return new File(context.getCacheDir(), mFileName + ".changelog");
     }
 
     /**
@@ -104,13 +99,6 @@ public class UpdateInfo implements Parcelable, Serializable {
      */
     public String getDownloadUrl() {
         return mDownloadUrl;
-    }
-
-    /**
-     * Get changelog location
-     */
-    public String getChangelogUrl() {
-        return mChangelogUrl;
     }
 
     public boolean isNewerThanInstalled() {
@@ -200,7 +188,6 @@ public class UpdateInfo implements Parcelable, Serializable {
         private int mApiLevel;
         private long mBuildDate;
         private String mDownloadUrl;
-        private String mChangelogUrl;
         private String mMd5Sum;
 
 
@@ -247,11 +234,6 @@ public class UpdateInfo implements Parcelable, Serializable {
             return this;
         }
 
-        public Builder setChangelogUrl(String changelogUrl) {
-            mChangelogUrl = changelogUrl;
-            return this;
-        }
-
         public Builder setMD5Sum(String md5Sum) {
             mMd5Sum = md5Sum;
             return this;
@@ -265,7 +247,6 @@ public class UpdateInfo implements Parcelable, Serializable {
             info.mApiLevel = mApiLevel;
             info.mBuildDate = mBuildDate;
             info.mDownloadUrl = mDownloadUrl;
-            info.mChangelogUrl = mChangelogUrl;
             info.mMd5Sum = mMd5Sum;
             return info;
         }

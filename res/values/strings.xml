@@ -25,6 +25,10 @@
     <string name="dialog_no">No</string>
     <string name="dialog_update">Update</string>
     <string name="dialog_close">Close</string>
+    <string name="dialog_changelog_title">Show changelog</string>
+    <string name="dialog_changelog_message">Choose a changelog to show</string>
+    <string name="dialog_changelog_release">Release</string>
+    <string name="dialog_changelog_beta">Beta</string>
 
     <!-- Settings strings -->
     <string name="available_updates_title">Available updates</string>
@@ -50,6 +54,11 @@
     <string name="type_new_incl_nightly">Beta channel</string>
     <string name="nightly_alert">You have selected to include beta updates in this list. These updates are only tested on the nexus 5, and may have bugs.These updates should be used with caution.</string>
     <string name="nightly_alert_title">Caution</string>
+
+    <string name="changelog_title">Changelog</string>
+    <string name="changelog_release_summary">Show the changelog for release version</string>
+    <string name="changelog_beta_summary">Show the changelog for beta version</string>
+    <string name="changelog_all_summary">Show the changelog for release- or beta version</string>
 
     <!-- Update checking -->
     <string name="checking_for_updates">Checking for updates</string>

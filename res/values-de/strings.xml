@@ -22,6 +22,10 @@
   <string name="dialog_no">Nein</string>
   <string name="dialog_update">Update</string>
   <string name="dialog_close">Schließen</string>
+  <string name="dialog_changelog_title">Changelog anzeigen</string>
+  <string name="dialog_changelog_message">Wähle welcher Changelog angezeigt werden soll</string>
+  <string name="dialog_changelog_release">Freigabe</string>
+  <string name="dialog_changelog_beta">Beta</string>
   <string name="available_updates_title">Verfügbare Updates</string>
   <string name="no_available_updates_intro">Es wurden keine Updates gefunden. \"Aktualisieren\" berühren, um manuell auf eine neue Version zu prüfen.</string>
   <string name="new_update_summary">Neu</string>
@@ -43,6 +47,10 @@
   <string name="type_new_incl_nightly">Beta-Versionen</string>
   <string name="nightly_alert">Sie haben festgelegt, dass auch Beta-Versionen angezeigt werden. Diese Versionen sind nur auf dem Nexus 5 getestet, und einzelne Funktionen können fehlerhaft sein.  Aus diesem Grund sollten Beta-Versionen mit Vorsicht installiert werden.</string>
   <string name="nightly_alert_title">Achtung</string>
+  <string name="changelog_title">Changelog</string>
+  <string name="changelog_release_summary">Den Changelog für die Freigabe-Version anzeigen</string>
+  <string name="changelog_beta_summary">Den Changelog für Beta-Versionen anzeigen</string>
+  <string name="changelog_all_summary">Den Changelog für die Freigabe- oder Beta-Versionen anzeigen</string>
   <string name="checking_for_updates">Updates werden gesucht</string>
   <string name="no_updates_found">Keine neuen Updates gefunden</string>
   <string name="update_check_failed">Die Suche nach Updates ist fehlgeschlagen. Bitte überprüfen Sie die Internetverbindung und versuchen es später erneut.</string>

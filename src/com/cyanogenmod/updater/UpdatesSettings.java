@@ -32,6 +32,7 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceManager;
+import android.preference.PreferenceScreen;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.Menu;
@@ -41,6 +42,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cyanogenmod.updater.misc.Constants;
+import com.cyanogenmod.updater.misc.FetchChangeLogTask;
 import com.cyanogenmod.updater.misc.State;
 import com.cyanogenmod.updater.misc.UpdateInfo;
 import com.cyanogenmod.updater.receiver.DownloadReceiver;
@@ -74,6 +76,7 @@ public class UpdatesSettings extends PreferenceActivity implements
     private CheckBoxPreference mBackupRom;
     private ListPreference mUpdateCheck;
     private ListPreference mUpdateType;
+    private PreferenceScreen mChangelog;
 
     private PreferenceCategory mUpdatesList;
     private UpdatePreference mDownloadingPreference;
@@ -128,6 +131,7 @@ public class UpdatesSettings extends PreferenceActivity implements
         mUpdatesList = (PreferenceCategory) findPreference(UPDATES_CATEGORY);
         mUpdateCheck = (ListPreference) findPreference(Constants.UPDATE_CHECK_PREF);
         mUpdateType = (ListPreference) findPreference(Constants.UPDATE_TYPE_PREF);
+        mChangelog = (PreferenceScreen) findPreference(Constants.CHANGELOG_PREF);
 
         // Load the stored preference data
         mPrefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -150,6 +154,11 @@ public class UpdatesSettings extends PreferenceActivity implements
             mUpdateType.setValue(String.valueOf(type));
             mUpdateType.setSummary(mUpdateType.getEntries()[type]);
             mUpdateType.setOnPreferenceChangeListener(this);
+        }
+
+        if (mChangelog != null) {
+            int type = mPrefs.getInt(Constants.UPDATE_TYPE_PREF, 0);
+            updateChangelogSummary(type);
         }
 
         /* TODO: add this back once we have a way of doing backups that is not recovery specific
@@ -253,6 +262,14 @@ public class UpdatesSettings extends PreferenceActivity implements
         }
 
         return false;
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        if (preference == mChangelog) {
+            fetchChangelog(this);
+        }
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     @Override
@@ -437,6 +454,17 @@ public class UpdatesSettings extends PreferenceActivity implements
         mPrefs.edit().putInt(Constants.UPDATE_TYPE_PREF, type).apply();
         mUpdateType.setSummary(mUpdateType.getEntries()[type]);
         checkForUpdates();
+        updateChangelogSummary(type);
+    }
+
+    private void updateChangelogSummary(int type) {
+            if (type == Constants.UPDATE_TYPE_NEW_RELEASE) {
+                mChangelog.setSummary(R.string.changelog_release_summary);
+            } else if (type == Constants.UPDATE_TYPE_NEW_BETA) {
+                mChangelog.setSummary(R.string.changelog_beta_summary);
+            } else {
+                mChangelog.setSummary(R.string.changelog_all_summary);
+            }
     }
 
     private void checkForDownloadCompleted(Intent intent) {
@@ -561,30 +589,6 @@ public class UpdatesSettings extends PreferenceActivity implements
 
         // Update the preference list
         refreshPreferences(updates);
-
-        // Prune obsolete change log files
-        new Thread() {
-            @Override
-            public void run() {
-                File[] files = getCacheDir().listFiles(new UpdateFilter(".changelog"));
-                if (files == null) {
-                    return;
-                }
-
-                for (File file : files) {
-                    boolean updateExists = false;
-                    for (UpdateInfo info : updates) {
-                        if (file.getName().startsWith(info.getFileName())) {
-                            updateExists = true;
-                            break;
-                        }
-                    }
-                    if (!updateExists) {
-                        file.delete();
-                    }
-                }
-            }
-        }.start();
     }
 
     private void refreshPreferences(LinkedList<UpdateInfo> updates) {
@@ -774,5 +778,46 @@ public class UpdatesSettings extends PreferenceActivity implements
                     }
                 })
                 .show();
+    }
+
+    private void fetchChangelog(final Context context) {
+        int updateType = mPrefs.getInt(Constants.UPDATE_TYPE_PREF, 0);
+
+        switch (updateType) {
+            case Constants.UPDATE_TYPE_NEW_RELEASE:
+                final String releaseFileName = Utils.germanLocalization() ?
+                        Constants.CHANGELOG_RELEASE_GERMAN : Constants.CHANGELOG_RELEASE_ENGLISH;
+                new FetchChangeLogTask(context).execute(releaseFileName);
+                break;
+            case Constants.UPDATE_TYPE_NEW_BETA:
+                final String betaFileName = Utils.germanLocalization() ?
+                        Constants.CHANGELOG_BETA_GERMAN : Constants.CHANGELOG_BETA_ENGLISH;
+                new FetchChangeLogTask(context).execute(betaFileName);
+                break;
+            default:
+                new AlertDialog.Builder(this)
+                        .setTitle(R.string.dialog_changelog_title)
+                        .setMessage(R.string.dialog_changelog_message)
+                        .setNegativeButton(R.string.dialog_cancel, null)
+                        .setNeutralButton(R.string.dialog_changelog_release, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                final String releaseFileNameAll = Utils.germanLocalization() ?
+                                        Constants.CHANGELOG_RELEASE_GERMAN : Constants.CHANGELOG_RELEASE_ENGLISH;
+                                new FetchChangeLogTask(context).execute(releaseFileNameAll);
+                            }
+                        })
+                        .setPositiveButton(R.string.dialog_changelog_beta, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                final String betaFileNameAll = Utils.germanLocalization() ?
+                                        Constants.CHANGELOG_BETA_GERMAN : Constants.CHANGELOG_BETA_ENGLISH;
+                                new FetchChangeLogTask(context).execute(betaFileNameAll);
+                            }
+                        })
+                        .show();
+                break;
+        }
+
     }
 }

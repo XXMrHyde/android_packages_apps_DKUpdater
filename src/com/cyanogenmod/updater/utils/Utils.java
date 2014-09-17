@@ -35,6 +35,7 @@ import com.cyanogenmod.updater.service.UpdateCheckService;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.Locale;
 
 public class Utils {
     private Utils() {
@@ -67,6 +68,16 @@ public class Utils {
 
     public static long getInstalledBuildDate() {
         return SystemProperties.getLong("ro.build.date.utc", 0);
+    }
+
+    public static boolean germanLocalization() {
+        String localization = Locale.getDefault().getLanguage();
+        boolean germanLocalization = false;
+
+        if (localization.equals("de")) {
+            germanLocalization = true;
+        }
+        return germanLocalization;
     }
 
     public static String getUserAgentString(Context context) {

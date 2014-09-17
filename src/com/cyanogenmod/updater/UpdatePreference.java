@@ -25,12 +25,11 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.cyanogenmod.updater.misc.FetchChangeLogTask;
 import com.cyanogenmod.updater.misc.UpdateInfo;
 
 import java.io.File;
 
-public class UpdatePreference extends Preference implements OnClickListener, OnLongClickListener {
+public class UpdatePreference extends Preference implements OnLongClickListener {
     private static final float DISABLED_ALPHA = 0.4f;
     public static final int STYLE_NEW = 1;
     public static final int STYLE_DOWNLOADING = 2;
@@ -101,7 +100,6 @@ public class UpdatePreference extends Preference implements OnClickListener, OnL
         mProgressBar = (ProgressBar)view.findViewById(R.id.download_progress_bar);
 
         mUpdatesPref = view.findViewById(R.id.updates_pref);
-        mUpdatesPref.setOnClickListener(this);
         mUpdatesPref.setOnLongClickListener(this);
 
         // Update the views
@@ -127,12 +125,6 @@ public class UpdatePreference extends Preference implements OnClickListener, OnL
                 break;
         }
         return true;
-    }
-
-    @Override
-    public void onClick(View v) {
-        final Context context = getContext();
-        new FetchChangeLogTask(context).execute(mUpdateInfo);
     }
 
     private void confirmDelete() {
@@ -226,7 +218,6 @@ public class UpdatePreference extends Preference implements OnClickListener, OnL
             mUpdatesPref.setLongClickable(true);
 
             final boolean enabled = isEnabled();
-            mUpdatesPref.setOnClickListener(enabled ? this : null);
             if (!enabled) {
                 mUpdatesPref.setBackgroundColor(0);
             }

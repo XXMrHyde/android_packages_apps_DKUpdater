@@ -12,41 +12,35 @@ package com.cyanogenmod.updater.misc;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.SystemProperties;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
-
-import com.android.volley.toolbox.RequestFuture;
 import com.cyanogenmod.updater.R;
 import com.cyanogenmod.updater.NotifyingWebView;
-import com.cyanogenmod.updater.UpdateApplication;
-import com.cyanogenmod.updater.requests.ChangeLogRequest;
-import com.cyanogenmod.updater.utils.Utils;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.ByteArrayInputStream;
+import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.concurrent.ExecutionException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.URL;
+import java.net.URLConnection;
 
-public class FetchChangeLogTask extends AsyncTask<UpdateInfo, Void, Void>
+public class FetchChangeLogTask extends AsyncTask<String, Void, Void>
         implements DialogInterface.OnDismissListener {
     private static final String TAG = "FetchChangeLogTask";
 
     private Context mContext;
-    private UpdateInfo mInfo;
+    private String mFileName;
     private NotifyingWebView mChangeLogView;
     private AlertDialog mAlertDialog;
 
@@ -55,17 +49,37 @@ public class FetchChangeLogTask extends AsyncTask<UpdateInfo, Void, Void>
     }
 
     @Override
-    protected Void doInBackground(UpdateInfo... infos) {
-        mInfo = infos[0];
+    protected Void doInBackground(String... fileNames) {
+        Resources res = mContext.getResources();
+        StringBuilder builder = new StringBuilder();
 
-        if (mInfo != null) {
-            File changeLog = mInfo.getChangeLogFile(mContext);
-            if (!changeLog.exists()) {
-                fetchChangeLog(mInfo);
-            }
+        for(String fileName : fileNames) {
+            builder.append(fileName);
         }
-        return null;
-    }
+        mFileName =  builder.toString();
+
+        String ChangelogUri;
+        String propertyChangelogUri = SystemProperties.get("dk.changelog.uri");
+        String configChangelogUpdateUri = res.getString(R.string.conf_changelog_server_url_def);
+
+        if (!TextUtils.isEmpty(propertyChangelogUri)) {
+            ChangelogUri = propertyChangelogUri;
+        } else {
+            ChangelogUri = configChangelogUpdateUri;
+        }
+
+        String channel = "release";
+
+        if (mFileName != null) {
+            if (mFileName.toLowerCase().contains("beta")) {
+                channel = "beta";
+            }
+
+            final String finalChangelogUrl = ChangelogUri + channel + "/" + mFileName;
+            fetchChangeLog(finalChangelogUrl);
+        }
+	    return null;
+	}
 
     @Override
     protected void onPreExecute() {
@@ -102,7 +116,7 @@ public class FetchChangeLogTask extends AsyncTask<UpdateInfo, Void, Void>
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-        File changeLog = mInfo.getChangeLogFile(mContext);
+        File changeLog = new File(mContext.getCacheDir(), mFileName);
 
         if (changeLog.length() == 0) {
             // Change log is empty
@@ -113,110 +127,36 @@ public class FetchChangeLogTask extends AsyncTask<UpdateInfo, Void, Void>
         }
     }
 
-    private void fetchChangeLog(final UpdateInfo info) {
-        Log.d(TAG, "Getting change log for " + info + ", url " + info.getChangelogUrl());
+    private void fetchChangeLog(final String url) {
+	    try {
+		
+		    URL changelogUrl = new URL(url);
+		    URLConnection connection = changelogUrl.openConnection();
+		    connection.connect();
 
-        final Response.ErrorListener errorListener = new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.e("Error: ", error.getMessage());
-                if (mAlertDialog != null && mAlertDialog.isShowing()) {
-                    mAlertDialog.dismiss();
-                    Toast.makeText(mContext, R.string.no_changelog_alert,
-                            Toast.LENGTH_SHORT).show();
-                }
-            }
-        };
-        // We need to make a blocking request here
-        RequestFuture<String> future = RequestFuture.newFuture();
-        ChangeLogRequest request = new ChangeLogRequest(Request.Method.GET, info.getChangelogUrl(),
-                Utils.getUserAgentString(mContext), future, errorListener);
-        request.setTag(TAG);
+		    InputStream input = new BufferedInputStream(changelogUrl.openStream());
+		    OutputStream output = new FileOutputStream(mContext.getCacheDir() + "/" + mFileName);
 
-        ((UpdateApplication) mContext.getApplicationContext()).getQueue().add(request);
-        try {
-            String response = future.get();
-            parseChangeLogFromResponse(info, response);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
-    }
+		    byte data[] = new byte[1024];
+		    int count;
+		    try {
+			    while ((count = input.read(data)) != -1)
+				    output.write(data, 0, count);
+		    } catch (IOException e) {
+			    e.printStackTrace();
+		    }
 
-    private void parseChangeLogFromResponse(UpdateInfo info, String response) {
-        boolean finished = false;
-        BufferedReader reader = null;
-        BufferedWriter writer = null;
-
-        try {
-            writer = new BufferedWriter(
-                    new FileWriter(info.getChangeLogFile(mContext)));
-            ByteArrayInputStream bais = new ByteArrayInputStream(response.getBytes());
-            reader = new BufferedReader(new InputStreamReader(bais), 2 * 1024);
-            boolean categoryMatch = false, hasData = false;
-            String line;
-
-            while ((line = reader.readLine()) != null) {
-                line = line.trim();
-                if (line.isEmpty()) {
-                    continue;
-                }
-
-                if (line.startsWith("=")) {
-                    categoryMatch = !categoryMatch;
-                } else if (categoryMatch) {
-                    if (hasData) {
-                        writer.append("<br />");
-                    }
-                    writer.append("<b><u>");
-                    writer.append(line);
-                    writer.append("</u></b>");
-                    writer.append("<br />");
-                    hasData = true;
-                } else if (line.startsWith("*")) {
-                    writer.append("<br /><b>");
-                    writer.append(line.replaceAll("\\*", ""));
-                    writer.append("</b>");
-                    writer.append("<br />");
-                    hasData = true;
-                } else {
-                    writer.append("&#8226;&nbsp;");
-                    writer.append(line);
-                    writer.append("<br />");
-                    hasData = true;
-                }
-            }
-            finished = true;
-        } catch (IOException e) {
-            Log.e(TAG, "Downloading change log for " + info + " failed", e);
-            // keeping finished at false will delete the partially written file below
-        } finally {
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    // ignore, not much we can do anyway
-                }
-            }
-            if (writer != null) {
-                try {
-                    writer.close();
-                } catch (IOException e) {
-                    // ignore, not much we can do anyway
-                }
-            }
-        }
-
-        if (!finished) {
-            info.getChangeLogFile(mContext).delete();
-        }
+		    output.flush();
+		    output.close();
+		    input.close();
+		
+	    } catch (IOException ioe) {
+		    ioe.printStackTrace();
+	    }
     }
 
     @Override
     public void onDismiss(DialogInterface dialogInterface) {
-        // Cancel all pending requests
-        ((UpdateApplication) mContext.getApplicationContext()).getQueue().cancelAll(TAG);
         // Clean up
         mChangeLogView.destroy();
         mChangeLogView = null;

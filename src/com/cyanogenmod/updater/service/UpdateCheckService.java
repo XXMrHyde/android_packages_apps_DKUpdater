@@ -197,7 +197,7 @@ public class UpdateCheckService extends IntentService
     }
 
     private URI getServerURI(int updateType) {
-        String propertyUpdateUri = SystemProperties.get("dk.updater.uri");
+        String propertyUpdateUri = SystemProperties.get("dk.update.uri");
         String device = SystemProperties.get("ro.product.device");
         String channel = "release";
 
@@ -299,7 +299,6 @@ public class UpdateCheckService extends IntentService
         UpdateInfo ui = new UpdateInfo.Builder()
                 .setFileName(obj.getString("filename"))
                 .setDownloadUrl(obj.getString("url"))
-                .setChangelogUrl(obj.getString("changes"))
                 .setMD5Sum(obj.getString("md5sum"))
                 .setApiLevel(obj.getInt("api_level"))
                 .setBuildDate(obj.getLong("timestamp"))
