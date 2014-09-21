@@ -48,6 +48,10 @@
   <string name="type_new_incl_nightly">Canal Beta</string>
   <string name="nightly_alert">Has seleccionado incluir actualizaciones beta en el listado. Estas actualizaciones sólo están probadas en el Nexus 5 y es posible que tengan fallos. Úsalas con precaución.</string>
   <string name="nightly_alert_title">Advertencia</string>
+  <string name="changelog_title">Changelog</string>
+  <string name="changelog_release_summary">Mostrar el changelog para la versión release</string>
+  <string name="changelog_beta_summary">Mostrar el changelog para la versión beta</string>
+  <string name="changelog_all_summary">Mostrar el changelog para las versiones release o beta</string>
   <string name="checking_for_updates">Comprobando actualizaciones\u2026</string>
   <string name="no_updates_found">No hay nuevas actualizaciones</string>
   <string name="update_check_failed">Falló la comprobación de actualizaciones. Por favor, verifica la conexión a Internet e inténtalo nuevamente.</string>
